@@ -1,7 +1,7 @@
 // packages needed for this application
 const inquirer = require("inquirer");
-const fs = require("fs");
-const HTMLfile = require("./lib/generateHTMLfile");
+const { writeFile } = require("fs/promises");
+const createHTMLfile = require("./lib/generateHTMLfile");
 
 // Creating an array of questions for user input
 const questions = [
@@ -31,13 +31,17 @@ const questions = [
 function askQustions() {
   return inquirer.prompt(questions).then((answers) => {
     console.log(answers);
-    // const newHTMLfile = HTMLfile(answers);
-    // fs.writeFile("./lib/index.html", newHTMLfile, () => {
-    //   console.log(
-    //     "Done! Please check lib forlder to find your newly generated index.html file."
-    //   );
-    //   return answers;
-    // }).catch((error) => console.log(error));
+    const newHTMLfile = createHTMLfile(answers);
+    const fileStatus = writeFile("./examples/index.html", newHTMLfile)
+      .then((fileStatus) => {
+        if (fileStatus === undefined) {
+          console.log(
+            "Done! Please check examples forlder to find your newly generated index.html file."
+          );
+        }
+      })
+      .catch((error) => console.log(error));
+    console.log("fileStatus :>> ", fileStatus);
   });
 }
 
