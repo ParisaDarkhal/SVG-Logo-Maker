@@ -1,0 +1,29 @@
+{
+  "name": "svg-logo-maker",
+  "version": "1.0.0",
+  "description": "Makes a SVG logo",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "SVG-Logo-Maker"
+  },
+  "keywords": [
+    "SVG",
+    "JS"
+  ],
+  "author": "Parisa Darkhal",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
