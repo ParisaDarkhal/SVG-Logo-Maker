@@ -7,7 +7,7 @@ const HTMLfile = require("./lib/generateHTMLfile");
 const questions = [
   {
     type: "input",
-    name: "text-color",
+    name: "textColor",
     message: "What color should your text be?",
   },
   {
@@ -17,7 +17,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "shape-color",
+    name: "shapeColor",
     message: "What color should your shape be?",
   },
   {
