@@ -3,10 +3,10 @@ const ValidateShape = require("../lib/shapes");
 describe("validate circle", () => {
   it("should return TRUE if a circle tag with red fill, and black text RYAN is returned", () => {
     const testCircle =
-      '<circle class="outline" cx="250" cy="250" r="100" fill="red" stroke="black" stroke-width="2"/><text x="250" y="260" fill="black" text-anchor="middle" font-size="2rem">RYAN</text>';
+      '<circle class="outline" cx="250" cy="250" r="100" fill="red" stroke="black" stroke-width="2"/><text x="250" y="260" fill="black" text-anchor="middle" font-size="2rem">RYN</text>';
     const data = {
       textColor: "black",
-      text: "ryan",
+      text: "ryn",
       shape: "Circle",
       shapeColor: "red",
     };

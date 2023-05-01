@@ -3,6 +3,14 @@ const inquirer = require("inquirer");
 const { writeFile } = require("fs/promises");
 const createHTMLfile = require("./lib/generateHTMLfile");
 
+// validation function
+const checkInputText = async (input) => {
+  if (input.length > 3) {
+    return false;
+  }
+  return true;
+};
+
 // Creating an array of questions for user input
 const questions = [
   {
@@ -13,7 +21,8 @@ const questions = [
   {
     type: "input",
     name: "text",
-    message: "Pleas enter three letters as your chosen text:",
+    message: "Pleas enter THREE letters as your chosen text:",
+    validate: checkInputText,
   },
   {
     type: "input",
