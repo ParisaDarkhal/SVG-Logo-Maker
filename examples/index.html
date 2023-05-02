@@ -1,9 +1,4 @@
-// inport from shape module
-const generateShape = require("./shapes");
 
-// function to generate index.html containing SVG (gets data form question prompts from index.js)
-function createHTMLfile(data) {
-  return `
   <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,11 +9,8 @@ function createHTMLfile(data) {
   </head>
   <body>
   <svg style="background-color: white" width="500" height="500">
-  ${generateShape(data)}
+  <rect x="150" y="150" width="200" height="200" fill="steelblue" rx="10" ry="10" stroke="black" stroke-width="2"/><text x="250" y="260" fill="pink" text-anchor="middle" font-size="2rem">PRB</text>
   </svg>
   </body> 
   </html>   
-    `;
-}
-
-module.exports = createHTMLfile;
+    

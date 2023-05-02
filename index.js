@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 const { writeFile } = require("fs/promises");
 const createHTMLfile = require("./lib/generateHTMLfile");
+const createSVGfile = require("./lib/generateSVGfile");
 
 // validation function
 const checkInputText = async (input) => {
@@ -41,6 +42,7 @@ function askQustions() {
   return inquirer.prompt(questions).then((answers) => {
     console.log(answers);
     const newHTMLfile = createHTMLfile(answers);
+    const newSVGfile = createSVGfile(answers);
     const fileStatus = writeFile("./examples/index.html", newHTMLfile)
       .then((fileStatus) => {
         if (fileStatus === undefined) {
@@ -51,6 +53,16 @@ function askQustions() {
       })
       .catch((error) => console.log(error));
     console.log("fileStatus :>> ", fileStatus);
+    const svgFileStatus = writeFile("./examples/logo.svg", newSVGfile)
+      .then((fileStatus) => {
+        if (fileStatus === undefined) {
+          console.log(
+            "Done! Please check examples forlder to find your newly generated logo.svg file."
+          );
+        }
+      })
+      .catch((error) => console.log(error));
+    console.log("fileStatus :>> ", svgFileStatus);
   });
 }
 
